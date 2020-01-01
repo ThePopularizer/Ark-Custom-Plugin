@@ -130,7 +130,7 @@ function responsive_carousel_function( $atts ){
 						$image = get_field('image');
 						$featuredImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' )[0];
 						$html .= '<div class="post-wrapper';
-						if ($featuredImage && $a[featured_image] == 'enable') {
+						if ($featuredImage && $a['featured_image'] == 'enable') {
 								$html .= ' parallax-slow" style="background-image: url(' . $featuredImage . ')';
 						}
 						$html .= '"><div class="post-image"><a href="' . get_permalink() . '">';

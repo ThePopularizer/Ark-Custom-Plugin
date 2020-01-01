@@ -28,7 +28,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 require 'plugin-update-checker/plugin-update-checker.php';
-$MyUpdateChecker = PucFactory::buildUpdateChecker(
+$MyUpdateChecker = Puc_v4p8_Factory::buildUpdateChecker(
 'https://raw.githubusercontent.com/ThePopularizer/Ark-Custom-Plugin/master/sync.json',
 __FILE__,
 'plugin'

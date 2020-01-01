@@ -3,6 +3,26 @@
 if ( !function_exists( 'get_field' ) )
 return;
 
+/* SECTION: Site Details */
+
+if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_page(array(
+		'page_title' 	=> 'Your Website',
+		'menu_title'	=> 'Your Website',
+		'menu_slug' 	=> 'your-website',
+		'position' => 2.1,
+		'icon_url' => 'dashicons-admin-home',
+	));
+
+	// acf_add_options_sub_page(array(
+	// 	'page_title' 	=> 'Theme Header Settings',
+	// 	'menu_title'	=> 'Header',
+	// 	'parent_slug'	=> 'theme-general-settings',
+	// ));
+
+}
+
 /********** SECTION: Header Area *****/
 
 /* Logo Area */
@@ -98,10 +118,7 @@ function feature_area( $atts ){
 	}
 	if (!isset($featuredImage)) {
 	    $featuredImage = 'http://loremflickr.com/1280/600/landscape';
-	}
-	if (isset($featuredImage)) {
-	  echo $featuredImage;
-	?>
+	} ?>
 	 itemprop="image"
 	  style="background-image: url('<?php
 	    if (has_post_thumbnail() /* && !is_woocommerce() */ ) {
@@ -111,7 +128,6 @@ function feature_area( $atts ){
 	    }
 	?>');"
 	<?php
-	}
 	?>> <!––  /* #feature-area opening */ -->
 	<div class="ct-section">
 	  <div class="ct-section-inner-wrap">
