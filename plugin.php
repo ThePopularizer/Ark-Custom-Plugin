@@ -3,7 +3,7 @@
 Plugin Name:	Custom Functions
 Plugin URI:		https://example.com
 Description:	Custom Functions by ThePopularizer.
-Version:		1.0.0
+Version:		1.0.1
 Author:			ThePopularizer
 Author URI:		https://thepopularizer.// COMBAK:
 License:		GPL-2.0+
@@ -26,6 +26,13 @@ along with This plugin. If not, see {URI to Plugin License}.
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
+
+require 'plugin-update-checker/plugin-update-checker.php';
+$MyUpdateChecker = PucFactory::buildUpdateChecker(
+'https://raw.githubusercontent.com/ThePopularizer/Ark-Custom-Plugin/master/sync.json',
+__FILE__,
+'plugin'
+);
 
 function include_all_php($folder){ foreach (glob("{$folder}/*.php") as $filename) { include_once $filename; } }
 include_all_php(plugin_dir_path( __FILE__ ).'includes'); // Function called for "Includes" diretory
