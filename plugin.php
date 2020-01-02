@@ -3,7 +3,7 @@
 Plugin Name:	Custom Functions
 Plugin URI:		https://example.com
 Description:	Custom Functions by ThePopularizer.
-Version:		1.0.1
+Version:		1.0.2
 Author:			ThePopularizer
 Author URI:		https://thepopularizer.// COMBAK:
 License:		GPL-2.0+
