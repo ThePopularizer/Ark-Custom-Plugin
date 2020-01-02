@@ -1,0 +1,86 @@
+{
+    "key": "group_56d21e7153f10",
+    "title": "Publication Details",
+    "fields": [
+        {
+            "key": "field_56d2261e44ccf",
+            "label": "Publication date",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Set date in the \"Publish:\" section on the side bar.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_56d21e8bbfee2",
+            "label": "File Upload",
+            "name": "file_upload",
+            "type": "file",
+            "instructions": "PDF is the recommended format.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": 15,
+            "mime_types": "pdf"
+        },
+        {
+            "key": "field_56d227388f2b3",
+            "label": "Included Articles",
+            "name": "included_articles",
+            "type": "relationship",
+            "instructions": "Select article posts that are included in this issue.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "taxonomy": [],
+            "filters": [
+                "search",
+                "taxonomy"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "publications"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1577949802
+}

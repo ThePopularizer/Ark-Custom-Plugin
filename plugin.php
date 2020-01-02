@@ -101,3 +101,69 @@ function generate_dynamic_css() {
   file_put_contents(wp_upload_dir()['basedir'] . '/css/dynamicstyle.css', $css, LOCK_EX); // Save it as a css file
 }
 add_action( 'acf/save_post', 'generate_dynamic_css', 20 ); //Parse the output and write the CSS file on post save (thanks Esmail Ebrahimi)
+
+
+/**
+ * Plugin Name: ACF Local JSON
+ * Plugin URI:  https://github.com/wplit/ACF-Local-JSON/
+ * GitHub URI:  wplit/ACF-Local-JSON/
+ * Description: Allows using Local JSON with ACF Pro without using a theme. Made for Oxygen Builder where the theme is disabled.
+ * Version:     1.0.0
+ * Author:      David Browne
+ * Author URI:  https://wplit.com/
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License version 2, as published by the
+ * Free Software Foundation.  You may NOT assume that you can use any other
+ * version of the GPL.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.
+ *
+ * @package    OxygenACFLocalJSON
+ * @since      1.0.0
+ * @copyright  Copyright (c) 2018, David Browne
+ * @license    GPL-2.0+
+ */
+
+add_filter('acf/settings/save_json', 'lit_acf_json_save_point');
+/**
+ * Adds plugin directory as new location for ACF Pro to save JSON
+ *
+ * @since 1.0.0
+ *
+ * @param $path Original path
+ * @return new path as /acf-json/
+ */
+function lit_acf_json_save_point( $path ) {
+
+    // update path
+    $path = plugin_dir_path( __FILE__ ) . '/acf-json';
+
+    // return
+    return $path;
+
+}
+
+add_filter('acf/settings/load_json', 'lit_acf_json_load_point');
+/**
+ * Adds plugin directory as new location for ACF Pro to load JSON
+ *
+ * @since 1.0.0
+ *
+ * @param array $paths Original path
+ * @return new path as /acf-json/
+ */
+function lit_acf_json_load_point( $paths ) {
+
+    // remove original path
+    unset($paths[0]);
+
+    // append path
+    $paths[] = plugin_dir_path( __FILE__ ) . '/acf-json';
+
+    // return
+    return $paths;
+
+}
