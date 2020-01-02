@@ -2,7 +2,7 @@
 "name" : "Ark Custom Plugin",
 "slug" : "plugin",
 "download_url" : "https://github.com/ThePopularizer/Ark-Custom-Plugin/archive/master.zip",
-"version" : "1.0.1",
+"version" : "1.0.2",
 "author" : "ThePopularizer",
 "sections" : {
 "description" : "Oxygen Ark template custom plugin."
