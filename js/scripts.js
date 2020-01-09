@@ -1,4 +1,5 @@
-window.addEventListener("load", function() {
+/* Parallax */
+jQuery(document).ready(function(){
   ! function(r) {
     "use strict";
     "function" == typeof define && define.amd ? define("parollerjs", ["jquery"], r) : "object" == typeof module && "object" == typeof module.exports ? module.exports = r(require("jquery")) : r(jQuery)
@@ -138,7 +139,8 @@ window.addEventListener("load", function() {
     direction: 'horizontal'
   });
 });
-window.addEventListener("load", function() {
+/* Facebook */
+jQuery(document).ready(function(){
   (function(e, a, f) {
     var c, b = e.getElementsByTagName(a)[0];
     if (e.getElementById(f)) {
@@ -146,14 +148,19 @@ window.addEventListener("load", function() {
     }
     c = e.createElement(a);
     c.id = f;
-    c.defer = true;
+    c.aync = true;
     c.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2&appId=299891797151646&autoLogAppEvents=1";
     b.parentNode.insertBefore(c, b)
   }(document, "script", "facebook-jssdk"))
 });
-window.addEventListener("load", function() {
-  jQuery('[data-toggle="tooltip"]').tooltip()
+/* Scroll to Top */
+jQuery(document).ready(function(){
+  jQuery("a[href='#top']").click(function() {
+  jQuery("html, body").animate({ scrollTop: 0 }, "slow");
+  return false;
+  });
 });
+/* Carousel */
 if ("undefined" == typeof jQuery) {
   throw new Error("Bootstrap's JavaScript requires jQuery")
 } + function(a) {
@@ -271,6 +278,7 @@ if ("undefined" == typeof jQuery) {
       d.call(e, e.data())
     })
   })
+  /* Tooltip */
 }(jQuery), + function(b) {
   function c(e) {
     return this.each(function() {
@@ -558,3 +566,7 @@ if ("undefined" == typeof jQuery) {
     })
   })
 }(jQuery);
+/* Tooltips */
+jQuery(document).ready(function(){
+  jQuery('[data-toggle="tooltip"]').tooltip()
+});

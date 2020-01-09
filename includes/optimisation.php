@@ -1,6 +1,5 @@
 <?php
 
-
 /* jQuery from Google */
 
 add_action( 'init', 'google_jquery', 1 );
@@ -167,8 +166,7 @@ add_action('init', 'remove_extra_meta');
 function defer_scripts( $tag, $handle ) {
   $scripts_to_defer = array(
     // Only some scripts, as the rest are compressed by the caching system:
-    "fb-scripts",
-		// "google-map-site-js",
+		"google-map-site-js",
   );
   foreach( $scripts_to_defer as $defer_script ) {
     if ( $defer_script === $handle ) {
@@ -186,7 +184,8 @@ add_filter( 'script_loader_tag', 'async_scripts', 10, 3 );
 function async_scripts( $tag, $handle, $src ) {
 
 	$async_scripts = array(
-		'custom-scripts',
+		"fb-scripts",
+		// 'custom-scripts',
 		// "chart",
 		// 'wp-embed',
     // Only some scripts, as the rest are compressed by the caching system:

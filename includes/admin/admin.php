@@ -24,6 +24,13 @@ function add_options_pages()
 }
 add_action('init', 'add_options_pages');
 
+function admin_google_maps_api() {
+  add_filter('acf/settings/google_api_key', function () {
+    $key = get_field('google_maps_api', 'option');
+    return $key;
+  });
+}
+add_action('admin_init', 'admin_google_maps_api');
 
 /***** SECTION: Whitelabeling */
 

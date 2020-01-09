@@ -66,7 +66,7 @@ add_action( 'wp_enqueue_scripts', 'custom_enqueue_files', 20);
  * Loads <list assets here>.
  */
 function custom_enqueue_files() {
-	wp_enqueue_script( 'async-script', plugin_dir_url( __FILE__ ) . 'js/scripts.js', '', '9.9.0', true );
+	wp_enqueue_script( 'custom-scripts', plugin_dir_url( __FILE__ ) . 'js/scripts.js', '', '9.9.0', true );
 	// wp_enqueue_script( 'highlightjs-init', plugin_dir_url( __FILE__ ) . 'js/highlight-init.js', '', '1.0.0', true );
 }
 
@@ -101,6 +101,14 @@ function generate_dynamic_css() {
   file_put_contents(wp_upload_dir()['basedir'] . '/css/dynamicstyle.css', $css, LOCK_EX); // Save it as a css file
 }
 add_action( 'acf/save_post', 'generate_dynamic_css', 20 ); //Parse the output and write the CSS file on post save (thanks Esmail Ebrahimi)
+
+$option = get_field('post_types', 'option');
+if ( (in_array('locations', $option)) ) {
+	add_action( 'wp_enqueue_scripts', 'map_enqueue_files', 10);
+	function map_enqueue_files() {
+		wp_enqueue_script( 'google-map-site-js', plugin_dir_url( __FILE__ ) . 'js/google-maps.js', array ( 'jquery' ), 1.1, false);
+	}
+}
 
 
 /**

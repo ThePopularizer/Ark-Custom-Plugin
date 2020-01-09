@@ -112,7 +112,7 @@
                         "phone": "Phone",
                         "mobile": "Mobile",
                         "fax": "Fax",
-                        "envelope-o": "Email",
+                        "mail": "Email",
                         "skype": "Skype",
                         "viber": "Viber",
                         "whatsapp": "WhatsApp"
@@ -121,8 +121,8 @@
                     "allow_null": 0,
                     "multiple": 0,
                     "ui": 0,
-                    "ajax": 0,
                     "return_format": "value",
+                    "ajax": 0,
                     "placeholder": ""
                 },
                 {
@@ -198,20 +198,19 @@
                         "id": ""
                     },
                     "choices": {
-                        "facebook-square": "Facebook",
-                        "youtube-square": "Youtube",
-                        "twitter-square": "Twitter",
-                        "linkedin-square": "Linkedin",
-                        "google-plus-square": "Google Plus",
+                        "facebook-squared": "Facebook",
+                        "youtube-squared": "Youtube",
+                        "twitter-squared": "Twitter",
+                        "linkedin-squared": "Linkedin",
                         "instagram": "Instagram",
-                        "pinterest-square": "Pinterest"
+                        "pinterest-squared": "Pinterest"
                     },
                     "default_value": [],
                     "allow_null": 0,
                     "multiple": 0,
                     "ui": 0,
-                    "ajax": 0,
                     "return_format": "array",
+                    "ajax": 0,
                     "placeholder": ""
                 },
                 {
@@ -301,25 +300,6 @@
                 "id": ""
             },
             "message": "Apply texture to Interface Elements (Panel headings, breadcrumbs, etc.)",
-            "default_value": 0,
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_5c294ec918526",
-            "label": "Scroll the Top Header",
-            "name": "scroll_top_header",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
             "default_value": 0,
             "ui": 0,
             "ui_on_text": "",
@@ -683,5 +663,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1577949803
+    "modified": 1578565859
 }

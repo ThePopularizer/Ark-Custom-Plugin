@@ -54,34 +54,37 @@ else {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.fa-envelope-o:before { content: '\e800'; } /* '' */
+.fa-mail:before { content: '\e800'; } /* '' */
 .fa-phone:before { content: '\e801'; } /* '' */
 .fa-user:before { content: '\e802'; } /* '' */
 .fa-users:before { content: '\e803'; } /* '' */
 .fa-globe:before { content: '\e804'; } /* '' */
-.fa-pencil:before, .fa-pencil-square-o:before { content: '\e805'; } /* '' */
+.fa-pencil:before { content: '\e805'; } /* '' */
 .fa-edit:before { content: '\e806'; } /* '' */
 .fa-comment:before { content: '\e807'; } /* '' */
 .fa-home:before { content: '\e808'; } /* '' */
 .fa-search:before { content: '\e809'; } /* '' */
-.fa-cogs:before { content: '\e80a'; } /* '' */
+.fa-cog-alt:before { content: '\e80a'; } /* '' */
 .fa-cog:before { content: '\e80b'; } /* '' */
-.fa-pinterest-square:before { content: '\f0d3'; } /* '' */
+.fa-twitter:before { content: '\f099'; } /* '' */
+.fa-facebook:before { content: '\f09a'; } /* '' */
+.fa-pinterest-squared:before { content: '\f0d3'; } /* '' */
+.fa-linkedin:before { content: '\f0e1'; } /* '' */
 .fa-angle-left:before { content: '\f104'; } /* '' */
 .fa-angle-right:before { content: '\f105'; } /* '' */
 .fa-angle-up:before { content: '\f106'; } /* '' */
 .fa-angle-down:before { content: '\f107'; } /* '' */
 .fa-mobile:before { content: '\f10b'; } /* '' */
-.fa-direction:before, .fa-location-arrow:before { content: '\f124'; } /* '' */
-.fa-youtube-square:before { content: '\f166'; } /* '' */
+.fa-direction:before { content: '\f124'; } /* '' */
+.fa-youtube-squared:before { content: '\f166'; } /* '' */
 .fa-instagram:before { content: '\f16d'; } /* '' */
 .fa-skype:before { content: '\f17e'; } /* '' */
 .fa-fax:before { content: '\f1ac'; } /* '' */
 .fa-whatsapp:before { content: '\f232'; } /* '' */
 .fa-map-o:before { content: '\f278'; } /* '' */
-.fa-twitter-square:before { content: '\f304'; } /* '' */
-.fa-linkedin-square:before { content: '\f30c'; } /* '' */
-.fa-facebook:before, .fa-facebook-square:before { content: '\f30e'; } /* '' */
+.fa-twitter-squared:before { content: '\f304'; } /* '' */
+.fa-linkedin-squared:before { content: '\f30c'; } /* '' */
+.fa-facebook-squared:before { content: '\f30e'; } /* '' */
 .sr-only { display: none; }
 
  <?php
@@ -465,21 +468,37 @@ if ($option=='dark') {
 
 elseif ($option=='light'|| $option=='') {
   $fixed_background_solid='#fff';
-  $fixed_background_translucent='rgba(255, 255, 255, 0.8)';
+  $fixed_background_translucent='rgba(255, 255, 255, 0.75)';
   $fixed_background_hover='rgba(255, 255, 255, 0.9)';
+  $fixed_background_translucent_top='rgba(245, 245, 245, 0.75)';
+  $fixed_background_hover_top='rgba(245, 245, 245, 0.9)';
   $colour='#454545';
   $colour_hover=$primary;
   $textshadow='';
 }
 
-?> #header-wrapper.oxy-sticky-header-active #main-header {
+?>
+
+#header-wrapper.oxy-sticky-header-active #top-header {
+  background-color: <?php echo $fixed_background_solid; ?>;
+  background-color: <?php echo $fixed_background_translucent_top; ?>;
+}
+
+#header-wrapper.oxy-sticky-header-active:hover #top-header {
+  background-color: <?php echo $fixed_background_solid;
+  ?>;
+  background-color: <?php echo $fixed_background_hover_top;
+  ?>;
+}
+
+#header-wrapper.oxy-sticky-header-active #main-header {
   background-color: <?php echo $fixed_background_solid;
   ?>;
   background-color: <?php echo $fixed_background_translucent;
   ?>;
 }
 
-#header-wrapper.oxy-sticky-header-active #main-header:hover {
+#header-wrapper.oxy-sticky-header-active:hover #main-header {
   background-color: <?php echo $fixed_background_solid;
   ?>;
   background-color: <?php echo $fixed_background_hover;

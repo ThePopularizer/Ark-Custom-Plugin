@@ -131,7 +131,7 @@ if( function_exists('get_field')) {
 					<div itemscope itemtype="http://schema.org/Organization" data-toggle="tooltip" data-placement="<?php echo $a['placement']; ?>" data-original-title="<?php if( $tooltip ) { echo $tooltip; } ?>" class="<?php echo $a['display']; ?>">
 						<?php if ( in_array($type, array('phone','mobile')) ) { ?>
 							<a itemprop="telephone" content="+64<?php echo $detailformatted; ?>" href="tel:+64<?php echo $detailformatted; ?>">
-								<?php } elseif ($type == 'envelope-o') { ?>
+							<?php } elseif ($type == 'mail') { ?>
 									<a class="mailto-link" href="mailto:<?php echo $detail; ?>" itemprop="email">
 								<?php } ?>
 						<?php if( $type ) { ?>
@@ -140,7 +140,7 @@ if( function_exists('get_field')) {
 						<?php if( $detail ) { ?>
 							<span class="title"><?php echo $detail; ?></span>
 						<?php } ?>
-						<?php if ( in_array($type, array('phone','mobile','envelope-o')) ) { ?>
+						<?php if ( in_array($type, array('phone','mobile','mail')) ) { ?>
 							</a>
 						<?php } ?>
 					</div>
@@ -201,16 +201,45 @@ if( function_exists('get_field')) {
 		reset_rows();
 		$a = shortcode_atts( array(
 				'colour' => 'light',
+				'placement' => 'bottom',
 		), $atts );
 		while( have_rows('social_media', 'options') ): the_row();
 		$provider = get_sub_field('provider', 'options');
 		$page_url = get_sub_field('page_url', 'options');
 		if ($provider['label'] == 'Facebook') {
 			ob_start(); ?>
-			<div class="fb-like" data-href="<?php echo $page_url ?>" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false" data-colorscheme="<?php echo $a['colour'] ?>"></div>
+			<div class="fb-like" data-href="<?php echo $page_url ?>" data-width="60" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="false" data-colorscheme="<?php echo $a['colour'] ?>" data-toggle="tooltip" data-placement="<?php echo $a['placement'] ?>" data-original-title="Like & follow us on Facebook">
+			</div>
 			<? return ob_get_clean();
 		}
 		endwhile;
 	}
 	add_shortcode( 'facebook-like', 'fb_like' );
 }
+
+
+function social_share_buttons( $atts ){
+	$url = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}/{$_SERVER['REQUEST_URI']}";
+	$title = get_the_title();
+	ob_start(); ?>
+	<ul class="social-share">
+	  <li class="facebook">
+	    <a rel="nofollow" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>" target="_blank">
+	    <span class="fa fa-facebook"></span>
+	  </a></li>
+	  <li class="twitter">
+			<a rel="nofollow" href="https://twitter.com/intent/tweet?text=Auckland%20Store&amp;url=<?php echo $url; ?>" target="_blank">
+			<span class="fa fa-twitter"></span>
+	  </a></li>
+	  <li class="linkedin">
+			<a rel="nofollow" href="https://www.linkedin.com/shareArticle?url=<?php echo $url; ?>&amp;title=<?php echo $title; ?>&amp;mini=true" target="_blank">
+	    <span class="fa fa-linkedin"></span>
+	  </a></li>
+	  <li class="email">
+			<a rel="nofollow" href="mailto:?subject=Auckland%20Store&amp;body=<?php echo $url; ?>" target="_blank">
+	    <span class="fa fa-mail"></span>
+	  </a></li>
+	</ul>
+	<?php return ob_get_clean();
+}
+add_shortcode( 'social-share', 'social_share_buttons' );
