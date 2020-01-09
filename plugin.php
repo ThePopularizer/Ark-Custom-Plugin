@@ -106,7 +106,7 @@ $option = get_field('post_types', 'option');
 if ( (in_array('locations', $option)) ) {
 	add_action( 'wp_enqueue_scripts', 'map_enqueue_files', 10);
 	function map_enqueue_files() {
-		wp_enqueue_script( 'google-map-site-js', plugin_dir_url( __FILE__ ) . 'js/google-maps.js', array ( 'jquery' ), 1.1, false);
+		wp_enqueue_script( 'google-map-site-js', plugin_dir_url( __FILE__ ) . 'js/google-maps.js', '', 1.1, true);
 	}
 }
 

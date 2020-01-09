@@ -208,7 +208,7 @@ if( function_exists('get_field')) {
 		$page_url = get_sub_field('page_url', 'options');
 		if ($provider['label'] == 'Facebook') {
 			ob_start(); ?>
-			<div class="fb-like" data-href="<?php echo $page_url ?>" data-width="60" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="false" data-colorscheme="<?php echo $a['colour'] ?>" data-toggle="tooltip" data-placement="<?php echo $a['placement'] ?>" data-original-title="Like & follow us on Facebook">
+			<div class="fb-like" data-href="<?php echo $page_url ?>" data-width="60" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="false" data-colorscheme="<?php echo $a['colour'] ?>" data-toggle="tooltip" data-placement="<?php echo $a['placement'] ?>" data-original-title="Like us on Facebook">
 			</div>
 			<? return ob_get_clean();
 		}
@@ -217,12 +217,18 @@ if( function_exists('get_field')) {
 	add_shortcode( 'facebook-like', 'fb_like' );
 }
 
-
 function social_share_buttons( $atts ){
 	$url = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}/{$_SERVER['REQUEST_URI']}";
 	$title = get_the_title();
+	$a = shortcode_atts( array(
+			'colour' => 'light',
+			'placement' => 'top',
+			'title' => 'Share This Page!',
+			'orientation' => 'horizontal',
+			'position' => 'static',
+	), $atts );
 	ob_start(); ?>
-	<ul class="social-share">
+	<ul class="social-share <?php echo $a['display'] ?> flex-<?php echo $a['orientation'] ?> <?php echo $a['position'] ?>" data-toggle="tooltip" data-colour="<?php echo $a['colour'] ?>" data-placement="<?php echo $a['placement'] ?>" data-original-title="<?php echo $a['title'] ?>">
 	  <li class="facebook">
 	    <a rel="nofollow" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>" target="_blank">
 	    <span class="fa fa-facebook"></span>
