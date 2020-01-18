@@ -63,7 +63,7 @@ function team_member_post_type() {
 		'capability_type'       => 'page',
 		'show_in_rest'          => false,
 	);
-	register_post_type( 'team-member', $args );
+	register_post_type( 'team', $args );
 
 }
 add_action( 'init', 'team_member_post_type', 0 );
@@ -107,7 +107,7 @@ function team_members_taxonomy() {
 		'show_tagcloud'              => true,
 		'show_in_rest'               => false,
 	);
-	register_taxonomy( 'team-members-category', array( 'team-member' ), $args );
+	register_taxonomy( 'team-members-category', array( 'team' ), $args );
 
 }
 add_action( 'init', 'team_members_taxonomy', 0 );

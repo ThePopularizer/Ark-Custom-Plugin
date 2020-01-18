@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 if ( ! function_exists( 'custom_sidebars' ) ) {
 
 // Register Sidebars

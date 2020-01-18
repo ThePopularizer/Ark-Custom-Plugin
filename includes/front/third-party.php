@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /* Google Analytics */
 if ( function_exists( 'get_field' ) ) {
   if (get_field('google_analytics_id', 'option')) {

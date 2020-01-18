@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /* Content Width */
 
 // if ( ! isset( $content_width ) ) {

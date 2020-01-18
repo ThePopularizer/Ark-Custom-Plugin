@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /* jQuery from Google */
 
 add_action( 'init', 'google_jquery', 1 );

@@ -120,21 +120,39 @@ jQuery(document).ready(function(){
       })
     }
   });
+  jQuery(".parallax-foreground").paroller({
+    factor: 0.5,
+    // factorXs: 0.2,
+    type: 'foreground',
+    direction: 'vertical'
+  });
+  jQuery(".parallax-foreground-medium").paroller({
+    factor: 0.25,
+    // factorXs: 0.2,
+    type: 'foreground',
+    direction: 'vertical'
+  });
+  jQuery(".parallax-foreground-slow").paroller({
+    factor: 0.1,
+    // factorXs: 0.025,
+    type: 'foreground',
+    direction: 'vertical'
+  });
   jQuery(".parallax").paroller({
     factor: 0.5,
-    factorXs: 0.2,
+    // factorXs: 0.2,
     type: 'background',
     direction: 'vertical'
   });
   jQuery(".parallax-slow").paroller({
-    factor: 0.05,
-    factorXs: 0.025,
+    factor: 0.1,
+    // factorXs: 0.025,
     type: 'background',
     direction: 'vertical'
   });
   jQuery(".parallax-horizontal").paroller({
     factor: 0.5,
-    factorXs: 0.2,
+    // factorXs: 0.2,
     type: 'background',
     direction: 'horizontal'
   });

@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /* List scripts/css according to Handle */
 
 function tp_print_scripts_styles() {

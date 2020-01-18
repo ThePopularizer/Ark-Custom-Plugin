@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 	// Location Details
 
 	function location_schedule( $atts ){

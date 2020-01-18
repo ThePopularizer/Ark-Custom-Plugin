@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name:	Custom Functions
+Plugin Name:	ThePopularizer Custom Functions
 Plugin URI:		https://example.com
 Description:	Custom Functions by ThePopularizer.
 Version:		1.0.2
@@ -23,9 +23,7 @@ You should have received a copy of the GNU General Public License
 along with This plugin. If not, see {URI to Plugin License}.
 */
 
-if ( ! defined( 'WPINC' ) ) {
-	die;
-}
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 require 'plugin-update-checker/plugin-update-checker.php';
 $MyUpdateChecker = Puc_v4p8_Factory::buildUpdateChecker(
@@ -102,14 +100,15 @@ function generate_dynamic_css() {
 }
 add_action( 'acf/save_post', 'generate_dynamic_css', 20 ); //Parse the output and write the CSS file on post save (thanks Esmail Ebrahimi)
 
-$option = get_field('post_types', 'option');
-if ( (in_array('locations', $option)) ) {
-	add_action( 'wp_enqueue_scripts', 'map_enqueue_files', 10);
-	function map_enqueue_files() {
-		wp_enqueue_script( 'google-map-site-js', plugin_dir_url( __FILE__ ) . 'js/google-maps.js', '', 1.1, true);
+if( function_exists('get_field')) {
+	$option = get_field('post_types', 'option');
+	if ( (in_array('locations', $option)) ) {
+		add_action( 'wp_enqueue_scripts', 'map_enqueue_files', 10);
+		function map_enqueue_files() {
+			wp_enqueue_script( 'google-map-site-js', plugin_dir_url( __FILE__ ) . 'js/google-maps.js', '', 1.1, true);
+		}
 	}
 }
-
 
 /**
  * Plugin Name: ACF Local JSON

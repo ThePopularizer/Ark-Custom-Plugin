@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /********** Reusable Part Shortcodes **********/
 
 add_shortcode( 'oxygen-template', 'func_oxygen_template' );
@@ -78,17 +80,25 @@ function doc_files( $atts ) {
 add_shortcode( 'feature', 'feature_icon_image' );
 function feature_icon_image() {
 	ob_start();
-	$icon = get_field('icon');
+	// $icon = get_field('icon');
 	$image = get_field('image');
+  $background = get_field('background');
+  $post_type = get_post_type();
 	if ($image || $icon) { ?>
 		<div class="featured">
 			<a href="<?php echo get_permalink(); ?>">
 				<?php
-				if ($icon) {
-					echo '<i class="fa ' . $icon . '" aria-hidden="true"></i>';
-				} elseif ($image) {
-					echo wp_get_attachment_image( $image, $size, false, array( "class" => "round shadow" ) );
-				}
+				// if ($icon) {
+					// echo '<i class="fa ' . $icon . '" aria-hidden="true"></i>';
+				// }
+        if ($image) {
+          if (( $background == 'round' ) || ( $post_type == 'testimonials') || ( $post_type == 'team') ) {
+            echo wp_get_attachment_image( $image, 'medium', false, array( "class" => "round shadow" ) );
+          }
+          elseif (( $background == 'transparent') || ( $background == '' ) ) {
+            echo wp_get_attachment_image( $image, 'medium', false, array( "class" => "transparent" ) );
+          }
+        }
 				?>
 			</a>
 		</div>

@@ -1,6 +1,8 @@
 <?php
 
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /* OpenGraph */
 
 //Adding the Open Graph in the Language Attributes

@@ -1,4 +1,7 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) exit;
+
   // Use a variable instead of magic number. Consider moving this to a WordPress config instead using get_option
 
 if ( !function_exists( 'get_field' ) ) {
@@ -34,7 +37,7 @@ function responsive_carousel_function( $atts ){
 		'theme'							=> 'light',
 		'carousel'					=> 'enable',
 		'speed'							=> '4000',
-		'image_style'				=> 'round',
+		'image_style'				=> 'transparent',
 		'image_size'				=> 'thumbnail',
 		'responsive'				=> 'disable',
 		'button_icon'				=> '',
@@ -64,6 +67,7 @@ function responsive_carousel_function( $atts ){
 	$responsive = $a['responsive'];
 	$button_icon = $a['button_icon'];
 	$button_class = $a['button_class'];
+	$background = get_field('background');
 
 	// Get the posts
 	if ($a['post_type'] !== 'acf') {
@@ -182,16 +186,16 @@ function responsive_carousel_function( $atts ){
 								$first = false;
 							} ?>
 							">
-								<div class="feature-slide parallax stretch" style="background-image: url(' <?php echo $slide[url] ?>')">
-									<?php if ($slide[caption]) { ?>
+								<div class="feature-slide parallax stretch" style="background-image: url(' <?php echo $slide['url'] ?>')">
+									<?php if ($slide['caption']) { ?>
 										<h2>
-											<?php echo $slide[caption] ?>
+											<?php echo $slide['caption'] ?>
 										</h2>
 									<?php } ?>
 
-									<?php if ($slide[description]) { ?>
+									<?php if ($slide['description']) { ?>
 										<div class="description">
-											<?php echo $slide[description] ?>
+											<?php echo $slide['description'] ?>
 										</div>
 									<?php } ?>
 								</div>

@@ -27,6 +27,30 @@
             "mime_types": ""
         },
         {
+            "key": "field_5e190a683a63b",
+            "label": "Background",
+            "name": "background",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "transparent": "Transparent",
+                "round": "Round"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "transparent",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
             "key": "field_5c11ec1a02e59",
             "label": "Name",
             "name": "name",
@@ -120,5 +144,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1577949919
+    "modified": 1578699414
 }

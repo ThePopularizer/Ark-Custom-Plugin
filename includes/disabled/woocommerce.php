@@ -1,8 +1,6 @@
 <?php
 
-if (!defined('WC_VERSION')) {
-  return;
-}
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
  * Add "Print receipt" link to Order Received page and View Order page

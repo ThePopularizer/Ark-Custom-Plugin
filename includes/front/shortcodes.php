@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 // Logged in shortcode
 
 add_shortcode('logged-in','show_user_content');
@@ -215,7 +217,7 @@ if( function_exists('get_field')) {
 		endwhile;
 	}
 	add_shortcode( 'facebook-like', 'fb_like' );
-}
+
 
 function social_share_buttons( $atts ){
 	$url = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}/{$_SERVER['REQUEST_URI']}";
@@ -249,3 +251,18 @@ function social_share_buttons( $atts ){
 	<?php return ob_get_clean();
 }
 add_shortcode( 'social-share', 'social_share_buttons' );
+
+}
+
+/* File Download */
+
+function download_button( $atts ) {
+	ob_start();
+	$file = get_field('file_upload');
+	if ( $file ) {
+		$url = $file['url']; ?>
+		<a class="btn btn-default btn-lg" href="<?php echo $url; ?>" target="_blank" download="<?php the_title(); ?>, <?php echo get_the_date(); ?>.pdf"><i class="fa fa-download-cloud"></i> Download</a> <?
+	}
+	return ob_get_clean();
+}
+add_shortcode( 'download-button', 'download_button' );

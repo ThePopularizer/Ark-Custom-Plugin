@@ -116,17 +116,6 @@ add_action( 'init', 'publications_post_type', 0 );
 
 /* File Download & Embed */
 
-function download_button( $atts ) {
-	ob_start();
-	$file = get_field('file_upload');
-	if ( $file ) {
-		$url = $file['url']; ?>
-		<a class="btn btn-default btn-lg" href="<?php echo $url; ?>" target="_blank" download="<?php the_title(); ?>, <?php echo get_the_date(); ?>.pdf"><i class="fa fa-cloud-download"></i> Download</a> <?
-	}
-	return ob_get_clean();
-}
-add_shortcode( 'download-button', 'download_button' );
-
 function publication_post($content) {
 	if ( is_single() ) {
 		$file = get_field('file_upload');
@@ -244,9 +233,9 @@ function publications_loop() {
 				</h3>
 			</div>
 			<div class="panel-body">
-				<a href="<?php echo get_permalink( $p->ID ); ?>">
+				<!-- <a href="<?php echo get_permalink( $p->ID ); ?>">
 					<img class="bulletin-cover perspective" src="/wp-content/uploads/cover.jpg" alt=""/>
-				</a>
+				</a> -->
 				<div class="btn-group btn-group-lg <?php echo $alignmentClass ?>" role="group">
 					<a class="btn btn-default" href="<?php echo get_permalink( $p->ID ); ?>"><i class="fa fa-eye"></i> View</a>
 					<?php echo do_shortcode("[download-button]"); ?>
@@ -301,9 +290,9 @@ function publications_list( $atts ) {
 				</h3>
 			</div>
 			<div class="panel-body">
-				<a href="<?php echo get_permalink( $p->ID ); ?>">
+				<!-- <a href="<?php echo get_permalink( $p->ID ); ?>">
 					<img class="bulletin-cover perspective" src="/wp-content/uploads/cover.jpg" alt=""/>
-				</a>
+				</a> -->
 				<div class="btn-group btn-group-lg <?php echo $alignmentClass ?>" role="group">
 					<a class="btn btn-default" href="<?php echo get_permalink( $p->ID ); ?>"><i class="fa fa-eye"></i> View</a>
 					<?php echo do_shortcode("[download-button]"); ?>
